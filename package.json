@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/wmccone/Reservation_Mini_Project/issues"
   },
-  "homepage": "https://github.com/wmccone/Reservation_Mini_Project#readme"
+  "homepage": "https://github.com/wmccone/Reservation_Mini_Project#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

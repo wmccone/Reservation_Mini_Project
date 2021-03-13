@@ -63,7 +63,20 @@
                 email: document.getElementById("emailAddress").value,
                 id: document.getElementById("uniqueId").value
             }
-        })
+            console.log(newTable);
+            fetch('/api/tables', {
+                method: "POST",
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newTable)
+                })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch((error) => {
+                console.error('Error:', error);
+                });
+            });
     </script>
 </body>
 </html>

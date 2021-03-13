@@ -1,0 +1,20 @@
+{
+  "name": "Reservation_Mini_Project",
+  "version": "1.0.0",
+  "description": "This App is going to take reservations for a local eatery",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wmccone/Reservation_Mini_Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wmccone/Reservation_Mini_Project/issues"
+  },
+  "homepage": "https://github.com/wmccone/Reservation_Mini_Project#readme"
+}

@@ -3,7 +3,26 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-const reservation = [
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
+const currentReservations = [
+  {
+    name: 'Yoda',
+    phone: '',
+    id: '',
+    email: ''
+  },
+  {
+    name: 'Jared',
+    phone: '',
+    id: '',
+    email: ''
+  }
+];
+
+const waitingList = [
   {
     name: 'Yoda',
     phone: '',
@@ -36,6 +55,17 @@ app.post('/reservations', (req, res) => {
 
   // Using a RegEx Pattern to remove spaces from newCharacter
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+  if (currentReservations.length<5){
+    
+    currentReservations.push(newTable)
+  }
+
+  else{
+    waitingList.push(newTable)
+  }
+
+
+
   newCharacter.routeName = newCharacter.name.replace(/\s+/g, '').toLowerCase();
   console.log(newCharacter);
 

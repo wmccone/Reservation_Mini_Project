@@ -56,21 +56,20 @@ app.post('/reservations', (req, res) => {
   // Using a RegEx Pattern to remove spaces from newCharacter
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
   if (currentReservations.length<5){
-    
+
+    res.json(newTable)
     currentReservations.push(newTable)
   }
 
   else{
+    res.json(newTable)
     waitingList.push(newTable)
   }
 
+  // newCharacter.routeName = newCharacter.name.replace(/\s+/g, '').toLowerCase();
+  // console.log(newCharacter);
 
-
-  newCharacter.routeName = newCharacter.name.replace(/\s+/g, '').toLowerCase();
-  console.log(newCharacter);
-
-  characters.push(newCharacter);
-  res.json(newCharacter);
+  // res.json(newCharacter);
 });
 
 // Starts the server to begin listening

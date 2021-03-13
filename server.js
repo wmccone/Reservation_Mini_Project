@@ -48,17 +48,17 @@ app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'tables.html'
 app.get('/reservations', (req, res) => res.sendFile(path.join(__dirname, 'reservations.html')));
 
 // Create New Characters - takes in JSON input
-app.post('/reservations', (req, res) => {
+app.post('/api/tables', (req, res) => {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
   const newTable = req.body;
-
   // Using a RegEx Pattern to remove spaces from newCharacter
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
   if (currentReservations.length<5){
 
     res.json(newTable)
     currentReservations.push(newTable)
+    console.log(currentReservations)
   }
 
   else{

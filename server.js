@@ -18,18 +18,21 @@ const reservation = [
   }
 ];
 
-/*// Routes
+// Routes
 
 // Basic route that sends the user first to the AJAX Page
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'view.html')));
 
-app.get('/add', (req, res) => res.sendFile(path.join(__dirname, 'add.html')));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+
+app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'tables.html')));
+
+app.get('/reservations', (req, res) => res.sendFile(path.join(__dirname, 'reservations.html')));
 
 // Create New Characters - takes in JSON input
-app.post('/restaurant', (req, res) => {
+app.post('/reservations', (req, res) => {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
-  const newCharacter = req.body;
+  const newTable = req.body;
 
   // Using a RegEx Pattern to remove spaces from newCharacter
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html

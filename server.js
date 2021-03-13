@@ -57,13 +57,13 @@ app.post('/reservations', (req, res) => {
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
   if (currentReservations.length<5){
 
-    res.json(newTable)
     currentReservations.push(newTable)
+    res.json(newTable)
   }
 
   else{
-    res.json(newTable)
     waitingList.push(newTable)
+    res.json(newTable)
   }
 
   // newCharacter.routeName = newCharacter.name.replace(/\s+/g, '').toLowerCase();

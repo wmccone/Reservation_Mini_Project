@@ -64,7 +64,7 @@ app.post('/api/tables', (req, res) => {
     confirmation = true
     currentReservations.push(newTable)
 
-    res.json(confirmation)
+    res.json(newTable)
 
     console.log(currentReservations)
   }
@@ -72,7 +72,7 @@ app.post('/api/tables', (req, res) => {
   else{
     confirmation = false
     waitingList.push(newTable)
-    res.json(confirmation)
+    res.json(newTable)
   }
 
   // newCharacter.routeName = newCharacter.name.replace(/\s+/g, '').toLowerCase();

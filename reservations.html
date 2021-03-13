@@ -64,6 +64,24 @@
                 id: document.getElementById("uniqueId").value
             }
         })
+        
+    
+        fetch('/reservations', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newCharacter),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+
+      console.log('', data);
+      alert(`: ${data.name}`);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
     </script>
 </body>
 </html>

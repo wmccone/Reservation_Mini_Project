@@ -13,7 +13,37 @@
     <h2>Waiting List</h2>
     <script>//the rest of em</script>
     <hr>
-    <a href="/"><button>Home</button></a>
-    <a href="/reservations"><button>Make a reservation</button></a>
+    <a href="/index.html"><button>Home</button></a>
+    <a href="/reservations.html"><button>Make a reservation</button></a>
+    
+    <script type="text/javascript">
+        
+          console.log(fetch(`/api/tables`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }))
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              const { name, number, email, uniqueid } = data;
+  
+              if (data) {
+                nameEl.textContent = name;
+                numberEl.textContent = number;
+                emailEl.textContent = email;
+                uniqueidEl.textContent = uniqueid;
+              } else {
+                nameEl.textContent =
+                  '';
+                  statsEl.setAttribute('style', 'display: none');
+              }
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        </script>
+    
 </body>
 </html>

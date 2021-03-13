@@ -10,30 +10,30 @@ app.use(express.json());
 const currentReservations = [
   {
     name: 'Yoda',
-    phone: '',
-    id: '',
-    email: ''
+    phone: '512.555.6565',
+    id: '3',
+    email: 'yoda@jedi.com'
   },
   {
-    name: 'Jared',
-    phone: '',
-    id: '',
-    email: ''
+    name: 'Darth Vader',
+    phone: '512.665.5656',
+    id: '4',
+    email: 'dVader@sith.com'
   }
 ];
 
 const waitingList = [
   {
-    name: 'Yoda',
-    phone: '',
-    id: '',
-    email: ''
+    name: 'Han',
+    phone: '321.567.8989',
+    id: '5',
+    email: 'Han@mfalcon.com'
   },
   {
-    name: 'Jared',
-    phone: '',
-    id: '',
-    email: ''
+    name: 'r2d2',
+    phone: '101.101.0101',
+    id: '6',
+    email: 'r2d2@deathstar.com'
   }
 ];
 
@@ -45,25 +45,34 @@ app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
 app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'tables.html')));
 
+app.get('/api/tables', (res) => res.json(currentReservations, waitingList));
+
 app.get('/reservations', (req, res) => res.sendFile(path.join(__dirname, 'reservations.html')));
+
 
 // Create New Characters - takes in JSON input
 app.post('/api/tables', (req, res) => {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
   const newTable = req.body;
+  const confirmation;
+
+
   // Using a RegEx Pattern to remove spaces from newCharacter
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
   if (currentReservations.length<5){
-
-    res.json(newTable)
+    confirmation = true
     currentReservations.push(newTable)
+
+    res.json(confirmation)
+
     console.log(currentReservations)
   }
 
   else{
-    res.json(newTable)
+    confirmation = false
     waitingList.push(newTable)
+    res.json(confirmation)
   }
 
   // newCharacter.routeName = newCharacter.name.replace(/\s+/g, '').toLowerCase();

@@ -29,22 +29,22 @@
 
         <div class="form-field">
             <p>Your Name</p>
-            <input type="text" placeholder="Your Name">
-        </div>
-        <div class="form-field">
-            <p>Your Email</p>
-            <input type="text" placeholder="Email">
+            <input type="text" placeholder="Your Name" id="customerName">
         </div>
         <div class="form-field">
             <p>Phone Number</p>
-            <input type="number" placeholder="Number">
+            <input type="text" placeholder="Number" id="phoneNumber">
+        </div>
+        <div class="form-field">
+            <p>Your Email</p>
+            <input type="text" placeholder="Email" id="emailAddress">
         </div>
         <div class="form-field">
             <p>Unique ID</p>
-            <input type="text" placeholder="Your Name">
+            <input type="text" placeholder="Your Name" id="uniqueId">
         </div>
         
-        <button class="btn">Submit</button>
+        <button class="btn" id="submit">Submit</button>
         
             
     
@@ -52,5 +52,18 @@
 
     <a href="/"><button class="btn">Home</button></a>
     <a href="/tables"><button class="btn">Tables</button></a>
+
+    <script type="text/javascript">
+        submitButton = document.getElementById("submit");
+
+        submitButton.addEventListener("click", () => {
+            let newTable = {
+                name: document.getElementById("customerName").value,
+                phone: document.getElementById("phoneNumber").value,
+                email: document.getElementById("emailAddress").value,
+                id: document.getElementById("uniqueId").value
+            }
+        })
+    </script>
 </body>
 </html>
